@@ -2,25 +2,32 @@
 
 
 {% block content %}
+<style>
+    .home-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
 
-<h1>Home template</h1>
 
-<div>
- 
-    <a  href="{% url 'create-room' %}">Create Room</a>
-    <hr>
-    {%for room in rooms%}
 
-       <div>
-           <a href="{% url 'update-room' room.id %}">Edit</a>
-           <a href="{% url 'delete-room' room.id %}">Delete</a>
-           <span>@{{room.host.username}}</span>
-           <h5>{{room.id}}-- <a href="{% url 'room'  room.id %}">{{room.name}}</a>
-           </h5>
-           <small>{{room.topic.name}}</small>
-           <hr>
-       </div>
-    {% endfor %}
+<div class="home-container">
+    <div>
+      {% include 'base/topic_component.html' %}
+    </div>
+    <div>
+        <h5>{{room_count}}  room available</h5>
+
+        <a href="{% url 'create-room' %}">Create Room</a>
+        <hr>
+       {% include 'base/feed_component.html' %}
+    </div>
+    <div>
+        {% include 'base/activity_component.html' %}
+       
+
+    </div>
+   
 </div>
 
 {% endblock %}
