@@ -1,10 +1,20 @@
-<h3>Browse Topics</h3>
-<hr>
-<div>
-    <a href="{% url 'home' %}">All</a>
+<div class="topics__header">
+    <h3>Browse Topics</h3>
+    <hr>
 </div>
+
+<ul class="topics__list">
+    <li>
+        <a href="{% url 'home' %}"> <img style="width:2.9rem;" src="https://cdn3d.iconscout.com/3d/premium/thumb/right-arrow-3711690-3105412.png" alt=""> All</a>
+    </li>
+    
+</ul>
 {% for topic in topics %}
-<div>
-    <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a>
-</div>
+<ul class="topics__list">
+    <li>
+        <a href="{% url 'home' %}?q={{topic.name}}">     <img style="width:2.9rem;" src="https://cdn3d.iconscout.com/3d/premium/thumb/right-arrow-3711690-3105412.png" alt="">{{topic.name}}</a>
+ 
+    </li>
+  
+</ul>
 {% endfor %}

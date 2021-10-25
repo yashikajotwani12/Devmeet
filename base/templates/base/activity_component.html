@@ -1,13 +1,17 @@
 <h3>Recent Activity</h3>
 <hr>
 {% for message in room_messages %}
-<div>
-    <small> <a href="{% url 'user-profile' message.user.id %}"> @{{message.user}}</a>  {{message.created| timesince}}</small>
+<div style="    background: #e5e5e5;
+padding: 1rem;
+border-radius: 9px;
+margin-bottom:1rem;
+box-shadow: 2px 1px 10px 0px #44425a;" >
+    <small> <a href="{% url 'user-profile' message.user.id %}"> <img style="width: 2.9rem;" src="https://cdn3d.iconscout.com/3d/premium/thumb/chat-bubble-4461453-3702771.png" alt=""> @{{message.user}}</a>  {{message.created| timesince}}</small>
     <small>replied to "{{message.room}}"</small>
     <p>{{message}}</p>
     {% if request.user == message.user  %}
     <a href="{% url 'delete-message' message.id %}">Delete</a>
     {% endif %}
-    <hr>
+    
 </div>
 {% endfor %}

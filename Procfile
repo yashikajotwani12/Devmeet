@@ -1,0 +1,1 @@
+web gunicorn devmeet.wsgi --log-file -

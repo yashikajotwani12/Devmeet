@@ -3,28 +3,60 @@
 {% block content %}
 
 <style>
-    .room-container{
+    .room-container {
         display: grid;
         grid-template-columns: 3fr 1fr;
     }
 </style>
 <div class="room-container">
 
-    <div>
+    <div class="room-main">
+        <div class="room__top">
+
+            <h1>{{room.name}}</h1>
+            <hr>
+        </div>
 
 
 
-        <h1>{{room.name}}</h1>
+
         <p>{{room.description}}</p>
 
-        <div class="comment-wrapper">
+        <div class="room__conversation">
             <h3>Conversation</h3>
-
-
             <hr>
-            {% for message in room_messages %}
+
+            <div id="threads" class="threads scroll">
+                {% for message in room_messages %}
+                <div class="thread">
+                    <div class="thread__top">
+                        <div class="delete__mess">
+                            {% if request.user == message.user %}
+                            <a href="{% url 'delete-message' message.id %}">Delete</a>
+                            {% endif %}
+                        </div>
+                        <div class="thread__author">
+                            <a class="thread__authorInfo" href="">@{{message.user}}</a>
+                            <span class="thread__date">{{message.created | timesince}} ago</span>
+
+                        </div>
+                        <div class="thread__details">
+                            <p>{{message.body}}</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                {% endfor %}
+
+            </div>
+
+
+          
+            <!-- {% for message in room_messages %}
             <div>
-                {% if request.user == message.user  %}
+                {% if request.user == message.user %}
                 <a href="{% url 'delete-message' message.id %}">Delete</a>
                 {% endif %}
                 <small>@{{message.user}} {{message.created | timesince}} ago </small>
@@ -32,7 +64,7 @@
                 <hr>
             </div>
 
-            {% endfor %}
+            {% endfor %} -->
         </div>
 
         {% if request.user.is_authenticated %}
@@ -45,17 +77,25 @@
 
         {% endif %}
     </div>
-    <div>
-        <h3>Participants</h3>
+    <div class="participants">
+        <div class="participants__top">
+            <h3>Participants</h3>
+
+        </div>
         <hr>
         {% for user in participants %}
-          <div>
-              <p>@{{user.username}}</p>
-          </div>
+        <div>
+            <p>@{{user.username}}</p>
+        </div>
         {% endfor %}
+
+
     </div>
 
-
+   
 </div>
+
+
+
 
 {% endblock %}

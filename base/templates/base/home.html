@@ -2,32 +2,37 @@
 
 
 {% block content %}
-<style>
-    .home-container{
-        display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
-    }
-</style>
 
 
-
+<div class="layout layout--3">
+    
 <div class="home-container">
-    <div>
+    <div class="topic-container" style="width: 25%;" >
       {% include 'base/topic_component.html' %}
     </div>
-    <div>
-        <h5>{{room_count}}  room available</h5>
+    <div style="width: 50%;  background: #e5e5e5; 
+    ">
+        <div style="display: flex; justify-content: space-between;align-items: center;  background: #8d88b7;  
+        padding: 3rem;
+        border-radius: 5px;">
+        <h5 class="room-count-main"> <span class="room_count" >{{room_count}}</span>  Room Available</h5>
 
-        <a href="{% url 'create-room' %}">Create Room</a>
-        <hr>
+        <a class="create-room-box" href="{% url 'create-room' %}"> <img style="width: 2.9rem;" src="https://cdn3d.iconscout.com/3d/premium/thumb/gaming-headphone-4307688-3580551.png" alt="">
+            Create Room</a>
+        </div>
+        
        {% include 'base/feed_component.html' %}
     </div>
-    <div>
+    <div style="width: 25%;">
         {% include 'base/activity_component.html' %}
        
 
     </div>
    
 </div>
+
+
+</div>
+
 
 {% endblock %}

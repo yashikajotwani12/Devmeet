@@ -1,10 +1,17 @@
 {% extends 'main.html'%}
 {%  block content %}
-<div>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Submit" />
-    </form>
+<div class="create_room_box">
+    <div class="create_room_box_header">
+        <h1>Create Room</h1>
+    </div>
+    <div class="layout_create_box">
+
+        <form class="form__group" method="POST" action="">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input class="buttonroom" type="submit" value="Submit" />
+        </form>
+    </div>
+    
 </div>
 {% endblock content %}
