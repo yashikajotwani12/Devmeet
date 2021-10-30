@@ -8,24 +8,73 @@
         grid-template-columns: 3fr 1fr;
     }
 </style>
-<div class="room-container">
+<div class="room--wrapper">
+    <div class="room-desc">
+        <div class="top">
+            <h1>{{room.name}}</h1>
+        </div>
+        <p>{{room.description}}</p>
+        <div class="middle">
+            <h3>Conversation</h3>
+            <div class="allchats">
+                {% for message in room_messages %}
+                <div class="chat">
+                    <div class="delete__mess">
+                        {% if request.user == message.user %}
+                        <a style="color: #d1d4fb;" href="{% url 'delete-message' message.id %}">Delete</a>
+                        {% endif %}
+                    </div>
+                    <div class="author-desc">
+                        <img  style="width: 4rem;" src="https://cdn3d.iconscout.com/3d/premium/thumb/account-4379876-3640198.png" alt="">
+                        <a style="color: #dedef8;" href="">@{{message.user}}</a>
+                        <p style="margin-bottom: 0; margin-left: 10rem;">{{message.created | timesince}} ago</p>
+                    </div>
+                    <div class="message">
+                        <p>{{message.body}}</p>
+                    </div>
+                </div>
+                {% endfor %}
 
-    <div class="room-main">
+            </div>
+           
+           
+        </div>
+        <div class="bottom">
+            <!-- <input type="text">
+            <button>Send</button> -->
+            {% if request.user.is_authenticated %}
+            <!-- <div class="comment-form"> -->
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <input type="text" name="body" placeholder="write your message here..." />
+                    <!-- <button>Send</button> -->
+                </form>
+            <!-- </div>  -->
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="participants">
+        <div class="participants__top">
+            <h3>Participants</h3>
+        </div>
+        <hr>
+        {% for user in participants %}
+        <div>
+            <p>@{{user.username}}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- <div class="room-main">
         <div class="room__top">
-
             <h1>{{room.name}}</h1>
             <hr>
         </div>
-
-
-
-
         <p>{{room.description}}</p>
-
         <div class="room__conversation">
             <h3>Conversation</h3>
             <hr>
-
             <div id="threads" class="threads scroll">
                 {% for message in room_messages %}
                 <div class="thread">
@@ -38,24 +87,16 @@
                         <div class="thread__author">
                             <a class="thread__authorInfo" href="">@{{message.user}}</a>
                             <span class="thread__date">{{message.created | timesince}} ago</span>
-
                         </div>
                         <div class="thread__details">
                             <p>{{message.body}}</p>
-
                         </div>
-
                     </div>
-
                 </div>
                 {% endfor %}
-
             </div>
-
-
-          
-            <!-- {% for message in room_messages %}
-            <div>
+            <!-- {% for message in room_messages %} -->
+    <!-- <div>
                 {% if request.user == message.user %}
                 <a href="{% url 'delete-message' message.id %}">Delete</a>
                 {% endif %}
@@ -65,22 +106,20 @@
             </div>
 
             {% endfor %} -->
-        </div>
-
-        {% if request.user.is_authenticated %}
+    <!-- </div> -->
+    <!-- {% if request.user.is_authenticated %}
         <div class="comment-form">
             <form method="POST" action="">
                 {% csrf_token %}
                 <input type="text" name="body" placeholder="write your message here..." />
             </form>
-        </div>
+        </div> -->
 
-        {% endif %}
-    </div>
+    <!-- {% endif %} -->
+    <!-- </div>
     <div class="participants">
         <div class="participants__top">
             <h3>Participants</h3>
-
         </div>
         <hr>
         {% for user in participants %}
@@ -88,11 +127,7 @@
             <p>@{{user.username}}</p>
         </div>
         {% endfor %}
-
-
-    </div>
-
-   
+    </div> -->
 </div>
 
 
