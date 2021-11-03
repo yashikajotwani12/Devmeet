@@ -134,12 +134,12 @@ small {
     /* justify-content: space-between; */
     margin-bottom: 1rem;
     font-weight: 500;
-    color: black;
+    color: white;
     align-items: center;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
     list-style: none;
-    background: #e5e5e5;
+    background: #8e89b5;
     padding: 10px;
     border-radius: 5px;
 }
@@ -512,4 +512,14 @@ small {
 .allactivity{
     overflow-y: scroll;
     height: 70vh;
+}
+.allactivity p{
+    color: #4d4a65;
+    font-weight: 500;
+}
+.maincontainer{
+    color: #cfd1f7b0;
+}
+.profile-container{
+    padding: 2rem;
 }
