@@ -284,26 +284,21 @@ small {
 }
 
 .room-main, .participants {
-    /* background: #44425a;
-    max-height: 87.5vh;
+    background: #44425a; 
     border-radius: 0.7rem;
-    overflow: hidden;
-    position: relative; */
-    background: #44425a;
-    /* max-height: 87.5vh; */
-    border-radius: 0.7rem;
-    /* overflow: hidden; */
+   
     position: relative;
     display: flex;
-    flex-basis: 72%;
+    flex-basis: 25%;
     flex-direction: column;
 }
 .room__top, .participants__top {
-    background: #a8a7ed;
+    color: white;
+    background: #343746;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     position: relative;
 }
 /* .layout--2 > .container > div:first-child {
@@ -370,12 +365,13 @@ small {
     overflow: hidden;
     display: flex;
     padding: 2rem;
+    justify-content: space-between;
 
 }
 .room-desc{
     width: 70%;
     background: #555276;
-    color: white;
+    color: #5e5775;
     border-radius: 5px;
     overflow: hidden;
     height: 100%;
@@ -398,7 +394,7 @@ small {
 .bottom{
     height: 8%;
     width: 100%;
-    background: #343746;
+    /* background: #343746; */
     display: flex;
     align-items: center;
     padding: 0 10px;
@@ -408,12 +404,29 @@ small {
     padding: 10px;
     border-radius: 0 10px 10px 0;
     margin: 0.3rem;
-
+    position: relative;
+}
+.chat .delete__mess {
+    position: absolute;
+    right: 2%;
+    background: #555276;;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 5px;
+}
+.chat .time-stamp {
+    margin-bottom: 0;
+    margin-left: 1rem;
+    font-size: 10px;
+    text-align: center;
+    /* font-size: 13px; */
+    color: #9d9d9d;
 }
 .author-desc{
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
+    /*  */
 }
 .author-desc h1{
     margin-bottom: 0;
@@ -451,12 +464,52 @@ small {
     cursor: pointer;
 }
 .bottom input {
-    width: 29.2rem;
-    background: #15161c;
+    width: 44rem;
+    background: #eef1fe;;
     border: none;
     height: 2rem;
     padding: 10px;
-    color: white;
+    color: #918cbb;
     outline: none;
     border-radius: 7px;
+    font-weight: 500;
+    position: fixed;
+}
+.roomabout{
+    background: #424359;
+    padding: 23px;
+    color: #e2d3f0;
+}
+.edit-deletemain{
+    float: right;
+}
+.activities {
+    background: #8d88b7;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.activities-header{
+    background-color: #555a74;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+    color: #f7fbff;
+    letter-spacing: 1px;
+    font-size: 1.4rem;
+}
+.activities-box{
+    margin: 1.5rem;
+    padding: 1.5rem;
+    border: 2px solid #8e76d9;
+    border-radius: 5px;
+}
+.participant-board {
+    background: #555276;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 1rem;
+}
+.allactivity{
+    overflow-y: scroll;
+    height: 70vh;
 }

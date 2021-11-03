@@ -1,17 +1,19 @@
-<div>
+<div class="mainfeed">
   {%for room in rooms%}
 
-  <div style="padding: 1rem;">
+  <div style="padding: 1rem; height: 8rem;">
     <small>{{room.topic.name}}</small>
     <a style="float: right;" href="{% url 'user-profile' room.host.id %}"> @{{room.host.username}}</a>
     <h5>{{room.id}}-- <a href="{% url 'room'  room.id %}">{{room.name}}</a>
     </h5>
-
-    {% if request.user == room.host %}
-    <a class="edit-delete" href="{% url 'update-room' room.id %}">Edit</a>
-    <a class="edit-delete" href="{% url 'delete-room' room.id %}">Delete</a>
-    {% endif %}
-    <hr>
+     <div class="edit-deletemain">
+      {% if request.user == room.host %}
+      <a class="edit-delete" href="{% url 'update-room' room.id %}">Edit</a>
+      <a class="edit-delete" href="{% url 'delete-room' room.id %}">Delete</a>
+      {% endif %}
+      
+     </div>
+   
   </div>
   {% endfor %}
 

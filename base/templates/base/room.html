@@ -11,11 +11,15 @@
 <div class="room--wrapper">
     <div class="room-desc">
         <div class="top">
-            <h1>{{room.name}}</h1>
+            <h1 style="color: #d6daf9;">{{room.name}}</h1>
         </div>
-        <p>{{room.description}}</p>
+        <!-- <div class="roomabout">
+            <p>{{room.description}}</p>
+             <!-- <h3>@{{host}}</h3>  
+        </div> -->
+       
         <div class="middle">
-            <h3>Conversation</h3>
+            <h3 style="color: #d6daf9;">Conversation</h3>
             <div class="allchats">
                 {% for message in room_messages %}
                 <div class="chat">
@@ -25,9 +29,9 @@
                         {% endif %}
                     </div>
                     <div class="author-desc">
-                        <img  style="width: 4rem;" src="https://cdn3d.iconscout.com/3d/premium/thumb/account-4379876-3640198.png" alt="">
+                        <img  style="width: 2rem;" src="https://cdn3d.iconscout.com/3d/premium/thumb/account-4379876-3640198.png" alt="">
                         <a style="color: #dedef8;" href="">@{{message.user}}</a>
-                        <p style="margin-bottom: 0; margin-left: 10rem;">{{message.created | timesince}} ago</p>
+                        <p style="margin-bottom: 0;" class="time-stamp" >{{message.created | timesince}} ago</p>
                     </div>
                     <div class="message">
                         <p>{{message.body}}</p>
@@ -58,10 +62,10 @@
         <div class="participants__top">
             <h3>Participants</h3>
         </div>
-        <hr>
+        
         {% for user in participants %}
-        <div>
-            <p>@{{user.username}}</p>
+        <div class="participant-board">
+            <p style="color: #9896e7;">@{{user.username}} <img style="width: 23px;" src="https://cdn.iconscout.com/icon/free/png-128/user-1482-457815.png" alt=""></p>
         </div>
         {% endfor %}
     </div>
