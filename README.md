@@ -36,7 +36,7 @@
     
 
 ## Overview 🔨
-Devmeet is a place where people who are intrested in devlopment and want to learn/share/dicuss/start can create  a room with a proper heading and description (purpose of creating the room). You can view the recent activity going on and can search and explore different rooms. Can chat and share your opinions/resolve someone's doubts. This also have a newsletter where you can subscribe and get the latest news of opportunities early.
+Devmeet is a place where people who are interested in the development and want to learn/share/discuss/start can create a room with a proper heading and description (purpose of creating the room). You can view the recent activity going on and can search and explore different rooms. Can chat and share your opinions/resolve someone's doubts. This also has a newsletter where you can subscribe and get the latest news of opportunities early.
 
 ## Features:
 
